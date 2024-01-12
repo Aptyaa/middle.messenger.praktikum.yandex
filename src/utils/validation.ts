@@ -39,9 +39,17 @@ export function blurValidation(e: any) {
   if (e.target.tagName === 'INPUT') {
     if (validation(e.target.name, e.target.value)) {
       e.target.classList.remove('not_valid')
+      if (e.target.parentNode.querySelector('.error_message'))
+        e.target.parentNode.querySelector('.error_message').remove()
 
       e.target.classList.add('valid')
     } else {
+      const span = document.createElement('span')
+      span.className = 'error_message'
+      span.textContent = 'Некорректное значение'
+      if (!e.target.parentNode.querySelector('.error_message'))
+        e.target.after(span)
+
       e.target.classList.add('not_valid')
     }
   }

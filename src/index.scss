@@ -1,11 +1,23 @@
+$error_message-color: red;
+
 * {
-	padding: 0;
-	margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
 #app {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.error_message {
+  display: block;
+  color: $error_message-color;
+  font-size: 15px;
+  position: absolute;
+  top: 27px;
+  right: 0;
+  z-index: 999;
 }
