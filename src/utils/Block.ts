@@ -1,7 +1,7 @@
 import { EventBus } from './EventBus'
 import { nanoid } from 'nanoid'
 
-class Block {
+class Block<Props extends Record<string, any> = any> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -10,7 +10,7 @@ class Block {
   }
 
   public id = nanoid(6)
-  protected props: unknown
+  protected props: Props
   protected refs: Record<string, Block> = {}
   public children: Record<string, Block>
   private eventBus: () => EventBus
@@ -46,18 +46,13 @@ class Block {
     return { props, children }
   }
   _removeEvents() {
-    const { events = {} } = this.props as {
-      events: Record<string, () => void>
-    }
+    const { events = {} } = this.props
     Object.keys(events).forEach(event => {
       this._element?.removeEventListener(event, events[event])
     })
   }
   _addEvents() {
-    const { events = {} } = this.props as {
-      events: Record<string, () => void>
-    }
-
+    const { events = {} } = this.props
     Object.keys(events).forEach(eventName => {
       this._element?.addEventListener(eventName, events[eventName], true)
     })
