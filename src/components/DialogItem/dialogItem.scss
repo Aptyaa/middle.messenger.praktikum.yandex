@@ -10,6 +10,9 @@ $mes-count_backgroundColor: rgb(30 111 233);
   border-bottom: $dialog-item_border;
   padding-top: 10px;
   padding-bottom: 15px;
+  &:hover {
+    background: #e4edfd;
+  }
 }
 
 .avatar {

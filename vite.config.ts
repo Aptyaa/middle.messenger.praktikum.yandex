@@ -10,6 +10,6 @@ export default defineConfig({
     outDir: resolve(__dirname, 'dist'),
   },
   server: {
-    open: 'index.html',
+    open: '/',
   },
 })

@@ -1,4 +1,6 @@
 /* eslint-disable no-extra-semi */
+import store from './Store'
+
 export function validation(name: string, value: string) {
   let regexp
   switch (name) {
@@ -74,10 +76,14 @@ export function submitValidation(e: any) {
         console.log('Пароли не совпадают!')
         return
       }
+      let objResult = {}
       for (let [name, value] of formData) {
-        console.log(`${name} : ${value}`)
-        e.target.reset()
+        objResult = { ...objResult, [name]: value }
       }
+      e.target.reset()
+      store.set('info', objResult)
+      console.log(objResult)
+      return flag
     } else console.log('Данные не корректны')
   }
 }

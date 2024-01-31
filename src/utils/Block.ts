@@ -1,7 +1,7 @@
 import { EventBus } from './EventBus'
 import { nanoid } from 'nanoid'
 
-class Block<Props extends Record<string, any> = any> {
+class Block<P extends Record<string, any> = any> {
   static EVENTS = {
     INIT: 'init',
     FLOW_CDM: 'flow:component-did-mount',
@@ -10,9 +10,9 @@ class Block<Props extends Record<string, any> = any> {
   }
 
   public id = nanoid(6)
-  protected props: Props
+  protected props: P
   protected refs: Record<string, Block> = {}
-  public children: Record<string, Block>
+  public children: Record<string, Block | Block[]>
   private eventBus: () => EventBus
   private _element: HTMLElement | null = null
 
@@ -78,13 +78,16 @@ class Block<Props extends Record<string, any> = any> {
   }
 
   componentDidMount() {}
-
   public dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM)
 
-    Object.values(this.children).forEach(child =>
-      child.dispatchComponentDidMount(),
-    )
+    Object.values(this.children).forEach(child => {
+      if (Array.isArray(child)) {
+        child.forEach(ch => ch.dispatchComponentDidMount())
+      } else {
+        child.dispatchComponentDidMount()
+      }
+    })
   }
 
   private _componentDidUpdate(oldProps?: unknown, newProps?: unknown) {
@@ -97,7 +100,7 @@ class Block<Props extends Record<string, any> = any> {
     return oldProps === newProps ? true : false
   }
 
-  setProps = (nextProps: unknown) => {
+  protected setProps = (nextProps: unknown) => {
     if (!nextProps) {
       return
     }
@@ -133,6 +136,8 @@ class Block<Props extends Record<string, any> = any> {
     const temp = document.createElement('template')
 
     temp.innerHTML = html
+
+    this.refs = contextAndStubs.__refs || {}
 
     contextAndStubs.__children?.forEach(({ embed }: any) => {
       embed(temp.content)

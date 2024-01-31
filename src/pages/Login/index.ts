@@ -1,9 +1,12 @@
 import Block from '../../utils/Block'
-import { render } from '../../utils/render'
 import template from './login.hbs'
 import { blurValidation } from '../../utils/validation'
 import { submitValidation } from '../../utils/validation'
 import './login.scss'
+import Router from '../../utils/Router'
+import { Routes } from '../..'
+import AuthController from '../../controllers/AuthController'
+import { SigninData, SignupData } from '../../api/AuthAPI'
 
 export class LoginPage extends Block {
   constructor() {
@@ -16,11 +19,20 @@ export class LoginPage extends Block {
       buttons: {
         type: 'submit',
         label: 'Войти',
+        onSubmit: () => {
+          let form: any = this.refs.formInfo
+          const formData = new FormData(form._element)
+          let data: any = {}
+          for (let [name, value] of formData) {
+            data = { ...data, [name]: value }
+          }
+          AuthController.signin(data)
+        },
       },
       ref: {
         href: '',
         onClick: () => {
-          render('signup')
+          Router.go(Routes.Signup)
         },
       },
 
@@ -29,7 +41,7 @@ export class LoginPage extends Block {
           type: 'text',
           value: '',
           placeholder: 'Пользователь',
-          name: 'first_name',
+          name: 'login',
         },
         {
           type: 'text',

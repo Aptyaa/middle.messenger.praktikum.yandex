@@ -1,22 +1,28 @@
 import Block from '../../utils/Block'
 import template from './profile.hbs'
 import './profile.scss'
-import { render } from '../../utils/render'
+import router from '../../utils/Router'
+import { Routes } from '../../index'
+import store, { StoreEvents, withStore } from '../../utils/Store'
 
-export default class Profile extends Block {
+class Profile extends Block {
   constructor() {
     super({
       refSet: {
         onClick: () => {
-          render('settings')
+          router.go(Routes.Settings)
         },
       },
       refPass: {
         onClick: () => {
-          render('password')
+          router.go(Routes.Password)
         },
       },
-
+      refExit: {
+        onClick: () => {
+          router.go(Routes.Home)
+        },
+      },
       inputs: [
         {
           field: 'Почта',
@@ -31,7 +37,14 @@ export default class Profile extends Block {
       ],
     })
   }
+  init() {
+    console.log(store)
+  }
   render() {
     return this.compile(template, this.props)
   }
 }
+
+const withUser = withStore(state => ({ ...state.user }))
+
+export default withUser(Profile)

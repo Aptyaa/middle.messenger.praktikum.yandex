@@ -1,22 +1,26 @@
 <div class='login-page'>
 
-	{{#Card pageName=this.pageName}}
-		{{#each inputs}}
-			{{{Input
-				label=this.label
-				type=this.type
-				value=this.value
-				placeholder=this.placeholder
-				name=this.name
-			}}}
-		{{/each}}
-		<div class='buttons-container'>
-			{{{Button label=this.buttons.label type=this.type}}}
-			{{{Ref
-				onClick=this.ref.onClick
-				border-color='white'
-				ref_name='Создать аккаунт'
-				border_color='white'
-			}}}</div>
-	{{/Card}}
+  {{#Card pageName=this.pageName ref='formInfo'}}
+    {{#each inputs}}
+      {{{Input
+        label=this.label
+        type=this.type
+        value=this.value
+        placeholder=this.placeholder
+        name=this.name
+      }}}
+    {{/each}}
+    <div class='buttons-container'>
+      {{{Button
+        label=this.buttons.label
+        onClick=this.buttons.onSubmit
+        type=this.type
+      }}}
+      {{{Ref
+        onClick=this.ref.onClick
+        border-color='white'
+        ref_name='Создать аккаунт'
+        border_color='white'
+      }}}</div>
+  {{/Card}}
 </div>

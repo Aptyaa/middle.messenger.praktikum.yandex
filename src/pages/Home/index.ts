@@ -1,48 +1,49 @@
 import Block from '../../utils/Block'
-import { render } from '../../utils/render'
 import template from './homepage.hbs'
+import router from '../../utils/Router'
+import { Routes } from '../../index'
 
 export default class Home extends Block {
   constructor() {
     super({
       login: {
         onClick: () => {
-          render('login')
+          router.go(Routes.Login)
         },
       },
       signup: {
         onClick: () => {
-          render('signup')
+          router.go(Routes.Signup)
         },
       },
       profile: {
         onClick: () => {
-          render('profile')
+          router.go(Routes.Profile)
         },
       },
       settings: {
         onClick: () => {
-          render('settings')
+          router.go(Routes.Settings)
         },
       },
       changePass: {
         onClick: () => {
-          render('password')
+          router.go(Routes.Password)
         },
       },
       chat: {
         onClick: () => {
-          render('chat')
+          router.go(Routes.Messenger)
         },
       },
       page404: {
         onClick: () => {
-          render('page404')
+          // render('page404')
         },
       },
       page500: {
         onClick: () => {
-          render('page500')
+          // render('page500')
         },
       },
     })

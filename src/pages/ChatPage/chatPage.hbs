@@ -1,15 +1,5 @@
 <div class='chat_page'>
-  {{#Sidebar}}
-    {{#each dialogs}}
-      {{{DialogItem
-        src_avatar=this.src_avatar
-        name=this.name
-        last_message=this.last_message
-        message_time=this.message_time
-        message_count=this.message_count
-      }}}
-    {{/each}}
-  {{/Sidebar}}
+  {{{Sidebar}}}
 
   <div class='chat'>
     <div class='header_chat'>

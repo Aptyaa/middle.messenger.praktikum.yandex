@@ -1,8 +1,11 @@
 import Block from '../../utils/Block'
-import './signup.scss'
 import template from './signup.hbs'
-import { render } from '../../utils/render'
 import { blurValidation, submitValidation } from '../../utils/validation'
+import router from '../../utils/Router'
+import { Routes } from '../../index'
+import AuthController from '../../controllers/AuthController'
+import './signup.scss'
+import { SignupData } from '../../api/AuthAPI'
 
 export default class SignUp extends Block {
   constructor() {
@@ -13,7 +16,18 @@ export default class SignUp extends Block {
       },
       ref: {
         onClick: () => {
-          render('login')
+          router.go(Routes.Login)
+        },
+      },
+      button: {
+        onSubmit: () => {
+          let form: any = this.refs.formInfo
+          const formData = new FormData(form._element)
+          let data = {}
+          for (let [name, value] of formData) {
+            data = { ...data, [name]: value }
+          }
+          AuthController.singup(data as SignupData)
         },
       },
       pageName: 'Регистрация',
