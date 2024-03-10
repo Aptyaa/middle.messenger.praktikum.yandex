@@ -11,11 +11,14 @@ $mes-count_backgroundColor: rgb(30 111 233);
   height: 40px;
   padding-top: 10px;
   padding-bottom: 15px;
+
   &:hover {
     background: #e4edfd;
   }
+
   position: relative;
 }
+
 .selected {
   background: #e4edfd;
 }
@@ -34,6 +37,7 @@ $mes-count_backgroundColor: rgb(30 111 233);
   font-weight: bold;
   margin-left: 60px;
   line-height: 34px;
+
   .last-mess {
     font-weight: normal;
     color: $last-mes_color;

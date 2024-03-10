@@ -1,10 +1,14 @@
+$color: blue;
+$background_color: white;
+$background: rgba(0, 0, 0, 60%);
+
 .wrapper-popup {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100%;
   width: 90vw;
-  background-color: rgba(0, 0, 0, 0.6);
+  background: $background;
   position: absolute;
   top: 0;
   left: 0;
@@ -22,13 +26,14 @@
     color: black;
     width: 340px;
     border-radius: 12px;
-    background-color: white;
+    background-color: $background_color;
     position: relative;
 
     input {
       margin-top: 25px;
       font-size: 13px;
     }
+
     .modal_popup-close {
       display: flex;
       justify-content: center;
@@ -37,18 +42,20 @@
       color: black;
       width: 15px;
       height: 15px;
-      background-color: white;
+      background-color: $background_color;
       position: absolute;
       top: 5px;
       right: 5px;
     }
   }
+
   button {
     margin: 0;
   }
+
   .file-label {
     text-decoration: underline;
-    color: blue;
+    color: $color;
     margin-bottom: 85px;
     cursor: pointer;
   }
