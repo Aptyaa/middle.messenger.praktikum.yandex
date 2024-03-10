@@ -1,39 +1,15 @@
 <div class='profile'>
-  {{{UserPhoto
-    src='../../images/photo_missed.jpg'
-    alt='Фото
-	пользователя'
-    name='Jack'
-  }}}
-  <form class='container-info'>
+  {{{photo}}}
+  {{{modal}}}
+  <form class='container-info '>
     {{#each inputs}}
-      {{{InfoInput
-        name=this.name
-        field=this.field
-        value=this.value
-        disabled=true
-      }}}
+      {{{this}}}
     {{/each}}
+    {{{button}}}
   </form>
   <div class='refers'>
-    {{{Ref
-      href='#'
-      border-color='lightgrey'
-      onClick=this.refSet.onClick
-      ref_name='Изменить данные'
-    }}}
-    {{{Ref
-      href='#'
-      onClick=this.refPass.onClick
-      border-color='lightgrey'
-      ref_name='Изменить пароль'
-    }}}
-    {{{Ref
-      href='#'
-      border-color='white'
-      color='red'
-      ref_name='Выйти'
-      onClick=this.refExit.onClick
-    }}}
+    {{{settings}}}
+    {{{password}}}
+    {{{exit}}}
   </div>
 </div>

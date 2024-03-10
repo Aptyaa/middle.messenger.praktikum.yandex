@@ -1,22 +1,15 @@
 <aside class='navigation'>
-  {{{Ref
-    ref_name='Профиль'
-    className='header_navigation'
-    color='inherit'
-    border_color='lightgrey'
-    onClick=this.onClick
-  }}}
-
+  <div class='wrapper-ref'>
+  {{{button}}}
+  {{{popupChat}}}
+  {{{ref}}}
+  </div>
+  {{{modal}}}
   <input class='search' placeholder='Поиск' />
   <div class='dialogs'>
-    {{#each dialogs}}
-      {{{DialogItem
-        src_avatar=this.src_avatar
-        name=this.name
-        last_message=this.last_message
-        message_time=this.message_time
-        message_count=this.message_count
-      }}}
+    {{#each chats}}
+      {{{this}}}
     {{/each}}
+
   </div>
 </aside>

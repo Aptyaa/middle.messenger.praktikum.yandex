@@ -1,27 +1,32 @@
-import BaseAPI from './BaseAPI'
-import { UserData } from './AuthAPI'
+import BaseAPI from './BaseAPI';
+import { UserData } from './AuthAPI';
+
+export interface UserPassword {
+  oldPassword: string;
+  newPassword: string;
+  password?: string;
+}
 
 export class UsersAPI extends BaseAPI {
   constructor() {
-    super('/user')
+    super('/user');
   }
-  public changeProfile(data: Partial<UserData>): Promise<UserData> {
-    return this.http.put('/profile', data)
+  public changeProfile(data: Partial<UserData>): Promise<XMLHttpRequest> {
+    return this.http.put('/profile', data);
   }
-  public changePassword(oldPass: string, newPass: string) {
-    return this.http.put('/password', {
-      oldPassword: oldPass,
-      newPassword: newPass,
-    })
+  public changePassword(data: UserPassword) {
+    return this.http.put('/password', data);
   }
-  public changeAvatar(avatar: FormData): Promise<UserData> {
-    return this.http.put('/profile.avatar', avatar)
+  public changeAvatar(avatar: FormData): Promise<XMLHttpRequest> {
+    return this.http.put('/profile/avatar', avatar, true);
   }
-
-  create = undefined
-  read = undefined
-  update = undefined
-  delete = undefined
+  public searchUser(login: string): Promise<XMLHttpRequest> {
+    return this.http.post('/search', { login });
+  }
+  create = undefined;
+  read = undefined;
+  update = undefined;
+  delete = undefined;
 }
 
-export default new UsersAPI()
+export default new UsersAPI();

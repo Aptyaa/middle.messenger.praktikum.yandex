@@ -1,48 +1,66 @@
-import API, { AuthAPI, SigninData, SignupData } from '../api/AuthAPI'
-import store from '../utils/Store'
-import router from '../utils/Router'
-import MessageController from './MessagesController'
-import { Routes } from '../index'
+import API, { AuthAPI, SigninData, SignupData } from '../api/AuthAPI';
+import store from '../utils/Store';
+import router from '../utils/Router';
+import MessageController from './MessagesController';
+import { submitValidation } from '../utils/validation';
+import { Routes } from '../index';
+import { errorHandling } from '../utils/helpers';
 
 export class AuthController {
-  private readonly api: AuthAPI
+  private readonly api: AuthAPI;
   constructor() {
-    this.api = API
+    this.api = API;
   }
   async signin(data: SigninData) {
-    try {
-      await this.api.signin(data)
-      await this.fetchUser()
-      router.go(Routes.Profile)
-    } catch (e) {
-      console.error(e)
-    }
-  }
+    const isValid = submitValidation(data);
+    if (isValid) {
+      const response = await this.api.signin(data);
+      try {
+        errorHandling(response);
 
-  async singup(data: SignupData) {
-    try {
-      await this.api.signup(data)
-      await this.fetchUser()
-
-      router.go(Routes.Profile)
-    } catch (e: any) {
-      console.error(e)
+        router.go(Routes.Messenger);
+      } catch (e: any) {
+        if (e === 'User already in system') router.go(Routes.Messenger);
+        else alert(e);
+      }
     }
   }
   async fetchUser() {
-    const user = await this.api.read()
-    store.set('user', user)
-  }
-  async logout() {
+    const response = await this.api.read();
+    const user = response.response;
     try {
-      MessageController.closeAll()
-      await this.api.logout()
-
-      router.go(Routes.Home)
+      errorHandling(response);
+      store.set('user', user);
     } catch (e: any) {
-      console.error(e.message)
+      alert(e);
+      throw new Error(e as string);
+    }
+  }
+  async singup(data: SignupData) {
+    const isValid = submitValidation(data);
+    if (isValid) {
+      const response = await this.api.signup(data);
+      try {
+        errorHandling(response);
+        router.go(Routes.Messenger);
+      } catch (e: any) {
+        if (e === 'User already in system') router.go(Routes.Messenger);
+        else alert(e);
+      }
+    }
+  }
+
+  async logout() {
+    const response = await this.api.logout();
+    try {
+      errorHandling(response);
+      MessageController.closeAll();
+
+      router.go(Routes.Index);
+    } catch (e: any) {
+      alert(e);
     }
   }
 }
 
-export default new AuthController()
+export default new AuthController();

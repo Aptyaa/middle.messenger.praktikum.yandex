@@ -1,0 +1,12 @@
+.selected-item {
+  background-color: lightgrey;
+}
+
+.item {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+}
+.item:hover {
+  background-color: lightgrey;
+}

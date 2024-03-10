@@ -1,7 +1,7 @@
-<div class='dialog-item'>
-	<img class='avatar' src='{{src_avatar}}' />
+<div class='dialog-item {{#if isSelected}}selected{{/if}}' >
+	<img class='avatar' src='{{avatar}}' /> 
 	<div class='name-mess'>{{name}}<div class='last-mess'>{{last_message}}</div>
 	</div>
-	<div class='time-mess'>{{message_time}}<span>{{message_count}}</span></div>
+	<div class='time-mess'>{{message_time}}{{#if message_count}}<span>{{message_count}}</span>{{/if}}</div>
 
 </div>

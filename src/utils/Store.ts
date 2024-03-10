@@ -1,58 +1,58 @@
-import { UserData } from '../api/AuthAPI'
-import { ChatInfo } from '../api/ChatsAPI'
-import { Message } from '../controllers/MessagesController'
-import Block from './Block'
-import { EventBus } from './EventBus'
-import { set } from './helpers'
+import { UserData } from '../api/AuthAPI';
+import { ChatInfo } from '../api/ChatsAPI';
+import { Message } from '../controllers/MessagesController';
+import Block from './Block';
+import { EventBus } from './EventBus';
+import { isEqual, set } from './helpers';
 
 export enum StoreEvents {
   Updated = 'updated',
 }
 
 interface State {
-  user: UserData
-  chat: ChatInfo[]
-  messages: Record<number, Message[]>
-  selectedChat?: number
+  user?: UserData;
+  chats?: ChatInfo[];
+  messages?: Record<number, Message[]>;
+  selectedChat?: number;
+  findedUsers?: UserData[];
+  selectUser?: number;
 }
 
 export class Store extends EventBus {
-  private state: any = {}
+  private state: State = {};
 
   public getState() {
-    return this.state
+    return this.state;
   }
   public set(path: string, value: unknown) {
-    set(this.state, path, value)
+    set(this.state, path, value);
 
-    this.emit(StoreEvents.Updated, this.getState())
+    this.emit(StoreEvents.Updated);
   }
 }
 
-const store = new Store()
+const store = new Store();
 
 //@ts-ignore
 
-window.store = store
+window.store = store;
 
-export function withStore<SP>(mapStateToProps: (state: State) => SP) {
-  return function wrap(Component: typeof Block) {
-    return class WithStore extends Component {
-      constructor(props: SP) {
-        let previousState = mapStateToProps(store.getState())
-
-        super({ ...props, ...previousState })
+export function withStore(mapStateToProps: (state: State) => any) {
+  return function (Component: typeof Block) {
+    let oldState = mapStateToProps(store.getState());
+    return class extends Component {
+      constructor(props: any) {
+        super({ ...props, ...mapStateToProps(store.getState()) });
 
         store.on(StoreEvents.Updated, () => {
-          const stateProps = mapStateToProps(store.getState())
-
-          previousState = stateProps
-
-          this.setProps({ ...stateProps })
-        })
+          let newState = mapStateToProps(store.getState());
+          if (!isEqual(oldState, newState)) {
+            this.setProps({ ...mapStateToProps(store.getState()) });
+          }
+        });
       }
-    }
-  }
+    };
+  };
 }
 
-export default store
+export default store;

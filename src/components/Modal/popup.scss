@@ -1,0 +1,55 @@
+.wrapper-popup {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  width: 90vw;
+  background-color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 999;
+
+  .popup {
+    box-sizing: border-box;
+    padding: 40px 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    line-height: 20px;
+    font-size: 15px;
+    color: black;
+    width: 340px;
+    border-radius: 12px;
+    background-color: white;
+    position: relative;
+
+    input {
+      margin-top: 25px;
+      font-size: 13px;
+    }
+    .modal_popup-close {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      color: black;
+      width: 15px;
+      height: 15px;
+      background-color: white;
+      position: absolute;
+      top: 5px;
+      right: 5px;
+    }
+  }
+  button {
+    margin: 0;
+  }
+  .file-label {
+    text-decoration: underline;
+    color: blue;
+    margin-bottom: 85px;
+    cursor: pointer;
+  }
+}

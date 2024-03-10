@@ -1,18 +1,19 @@
-import Block from '../../utils/Block'
-import template from './userPhoto.hbs'
-import './userPhoto.scss'
+import Block from '../../utils/Block';
+import template from './userPhoto.hbs';
+import './userPhoto.scss';
 
 interface UserPhotoProps {
-  src: string
-  alt: string
-  name: string
+  src: string | null;
+  alt: string;
+  onClick?: () => void;
+  name?: string;
 }
 
 export default class UserPhoto extends Block {
   constructor(props: UserPhotoProps) {
-    super(props)
+    super({ ...props, name: props.name, events: { click: props.onClick } });
   }
   render() {
-    return this.compile(template, this.props)
+    return this.compile(template, this.props);
   }
 }

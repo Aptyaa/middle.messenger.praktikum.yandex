@@ -1,30 +1,24 @@
 $input-border: 1px solid grey;
 $input-border--hover: blue;
-$input-valid: green;
-$input-invalid: red;
 
 .input {
   width: 100%;
   border: none;
+  display: block;
   border-bottom: $input-border;
   margin-bottom: 40px;
   background-color: white;
-  font-size: 18px;
+  font-size: 22px;
+}
+.wrapper_input {
   position: relative;
+  width: 100%;
 }
 
 .input:hover {
   border-color: $input-border--hover;
 }
 
-.valid {
-  color: $input-valid;
-}
-
-.not_valid {
-  color: $input-invalid;
-}
-
-.wrapper_input {
-  position: relative;
+.hidden {
+  display: none;
 }
