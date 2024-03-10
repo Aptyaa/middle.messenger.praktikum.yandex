@@ -33,10 +33,6 @@ export class Store extends EventBus {
 
 const store = new Store();
 
-//@ts-ignore
-
-window.store = store;
-
 export function withStore(mapStateToProps: (state: State) => any) {
   return function (Component: typeof Block) {
     let oldState = mapStateToProps(store.getState());
