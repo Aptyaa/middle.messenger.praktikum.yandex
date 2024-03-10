@@ -97,7 +97,6 @@ class Router {
     this.currentRoute = route!;
 
     if (!['/', '/sign-up', '/404', '/500'].find(el => el === pathname)) {
-      console.log('query');
       AuthController.fetchUser()
         .then(() => {
           if (pathname === '/messenger') {
