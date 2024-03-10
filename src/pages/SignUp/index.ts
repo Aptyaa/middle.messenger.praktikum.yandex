@@ -55,7 +55,7 @@ export default class SignUp extends Block {
       border_color: 'white',
       onClick: e => {
         e.preventDefault();
-        Router.go(Routes.Login);
+        Router.go(Routes.Index);
       },
     });
   }
