@@ -6,4 +6,4 @@
 
 шаблон макета: https://www.figma.com/file/jF5fFFzgGOxQeB4CmKWTiE/Chat_external_link?type=design&node-id=0-1&mode=design&t=wlvSCw6x8Wss6i5L-0
 
-https://startling-lamington-2db671.netlify.app
+netlify: https://sprint-3--startling-lamington-2db671.netlify.app/
