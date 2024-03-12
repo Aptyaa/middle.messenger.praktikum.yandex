@@ -24,7 +24,6 @@ class PasswordChange extends Block {
     super(props);
   }
   init() {
-    // AuthController.fetchUser();
     this.children.photo = new UserPhoto({
       src: setAvatar(this.props.avatar),
       alt: 'Фото пользователя',
@@ -56,7 +55,7 @@ class PasswordChange extends Block {
     });
   }
 
-  componentDidUpdate(_oldProps: any, newProps: any): boolean {
+  componentDidUpdate(_oldProps: UserData, newProps: UserData): boolean {
     this.children.photo = new UserPhoto({
       src: setAvatar(newProps.avatar),
       alt: 'Фото пользователя',

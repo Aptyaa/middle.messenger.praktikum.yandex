@@ -7,11 +7,11 @@ interface ButtonProps {
   type?: 'submit' | 'button';
   display?: string;
   class?: string;
-  onClick?: (e: any) => void;
-  onKeydown?: (e: any) => void;
+  onClick?: (e: Event) => void;
+  onKeydown?: (e: Event) => void;
   events?: {
-    click: (e: any) => void;
-    keydown: (e: any) => void;
+    click: (e: Event) => void;
+    keydown: (e: Event) => void;
   };
 }
 

@@ -19,7 +19,7 @@ export class AuthController {
         errorHandling(response);
 
         router.go(Routes.Messenger);
-      } catch (e: any) {
+      } catch (e) {
         if (e === 'User already in system') router.go(Routes.Messenger);
         else alert(e);
       }
@@ -31,7 +31,7 @@ export class AuthController {
     try {
       errorHandling(response);
       store.set('user', user);
-    } catch (e: any) {
+    } catch (e) {
       alert(e);
       throw new Error(e as string);
     }
@@ -43,7 +43,7 @@ export class AuthController {
       try {
         errorHandling(response);
         router.go(Routes.Messenger);
-      } catch (e: any) {
+      } catch (e) {
         if (e === 'User already in system') router.go(Routes.Messenger);
         else alert(e);
       }
@@ -57,7 +57,7 @@ export class AuthController {
       MessageController.closeAll();
 
       router.go(Routes.Index);
-    } catch (e: any) {
+    } catch (e) {
       alert(e);
     }
   }

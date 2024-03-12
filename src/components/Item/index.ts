@@ -1,5 +1,5 @@
 import Block from '../../utils/Block';
-import { withStore } from '../../utils/Store';
+import { State, withStore } from '../../utils/Store';
 import template from './item.hbs';
 import './item.scss';
 
@@ -7,7 +7,7 @@ interface ItemProps {
   id: number;
   class?: string;
   content: string;
-  click?: (e: any) => void;
+  click?: (e: Event) => void;
 }
 
 export class Item extends Block {
@@ -28,7 +28,7 @@ export class Item extends Block {
   }
 }
 
-const withSelectUsers = withStore((state: any) => {
+const withSelectUsers = withStore((state: State) => {
   return {
     selectUser: state.selectUser,
     findedUsers: state.findedUsers || [],

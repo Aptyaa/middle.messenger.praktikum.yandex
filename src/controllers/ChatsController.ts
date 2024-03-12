@@ -15,7 +15,7 @@ class ChatsController {
     try {
       errorHandling(response);
       this.fetchChats();
-    } catch (e: any) {
+    } catch (e) {
       alert(e);
     }
   }
@@ -30,7 +30,7 @@ class ChatsController {
         await MessageController.connect(chat.id, token as string);
       });
       store.set('chats', chats);
-    } catch (e: any) {
+    } catch (e) {
       alert(e);
     }
   }
@@ -39,7 +39,7 @@ class ChatsController {
     const response = await this.api.addUsers(userId, id);
     try {
       errorHandling(response);
-    } catch (e: any) {
+    } catch (e) {
       alert(e);
     }
   }
@@ -47,7 +47,7 @@ class ChatsController {
     const response = await this.api.deleteUsers(userId, id);
     try {
       errorHandling(response);
-    } catch (e: any) {
+    } catch (e) {
       alert(e);
     }
   }
@@ -57,7 +57,7 @@ class ChatsController {
       errorHandling(response);
       store.set('selectedChat', undefined);
       this.fetchChats();
-    } catch (e: any) {
+    } catch (e) {
       alert(e);
     }
   }
@@ -67,7 +67,7 @@ class ChatsController {
     try {
       errorHandling(response);
       store.set('findedUsers', response.response);
-    } catch (e: any) {
+    } catch (e) {
       alert(e);
     }
   }
@@ -80,7 +80,7 @@ class ChatsController {
     try {
       errorHandling(response);
       await this.fetchChats();
-    } catch (e: any) {
+    } catch (e) {
       alert(e);
     }
   }

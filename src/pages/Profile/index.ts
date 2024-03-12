@@ -31,7 +31,6 @@ class Profile extends Block {
     super(props);
   }
   init() {
-    // AuthController.fetchUser();
     this.children.modal = new Modal({
       describeAction: 'Загрузите файл',
       type: 'file',

@@ -10,7 +10,7 @@ interface InputProps {
   name?: string;
   class?: string;
   events?: {
-    input?: (e: any) => void;
+    input?: (e: Event) => void;
   };
 }
 
@@ -20,7 +20,7 @@ export default class Input extends Block {
       ...props,
       events: {
         ...props.events,
-        blur: (e: any) => {
+        blur: (e: Event) => {
           blurValidation(e);
         },
       },

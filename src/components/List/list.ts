@@ -18,8 +18,8 @@ export class List extends Block {
     this.children.findedUsers = this.createFindedUsers(this.props);
   }
 
-  private createFindedUsers(props: any) {
-    return props.findedUsers?.map((user: any) => {
+  private createFindedUsers(props: ListProps) {
+    return props.findedUsers?.map((user: UserData) => {
       return new Item({
         id: user.id,
         content: user.login,
@@ -32,7 +32,10 @@ export class List extends Block {
       });
     });
   }
-  protected componentDidUpdate(_oldProps: any, newProps: any): boolean {
+  protected componentDidUpdate(
+    _oldProps: ListProps,
+    newProps: ListProps,
+  ): boolean {
     this.children.findedUsers = this.createFindedUsers(newProps);
     return true;
   }

@@ -5,8 +5,8 @@ import './userPhoto.scss';
 interface UserPhotoProps {
   src: string | null;
   alt: string;
-  onClick?: () => void;
   name?: string;
+  onClick?: () => void;
 }
 
 export default class UserPhoto extends Block {

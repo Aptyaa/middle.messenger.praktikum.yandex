@@ -21,9 +21,7 @@ export class DialogItem extends Block {
   constructor(props: DialogItemProps) {
     super({
       ...props,
-      avatar: props.avatar
-        ? props.avatar
-        : '../../public/images/photo_missed.jpg',
+      avatar: props.avatar ? props.avatar : '../../images/photo_missed.jpg',
     });
   }
 

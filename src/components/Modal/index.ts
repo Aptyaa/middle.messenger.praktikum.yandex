@@ -9,14 +9,14 @@ import List from '../List/list';
 
 interface ModalProps {
   describeAction?: string;
-  type?: 'text' | 'file';
+  type: 'text' | 'file';
   action?: string;
   label?: string;
   modalClass?: string;
   btnClass?: string;
   findedUsers?: UserData[] | [];
-  onClick?: (e: any) => void;
-  onInput?: (e: any) => void;
+  onClick?: (e: Event) => void;
+  onInput?: (e: Event) => void;
 }
 
 export default class Modal extends Block {
@@ -24,7 +24,7 @@ export default class Modal extends Block {
     super({
       ...props,
       events: {
-        keydown: (e: any) => {
+        keydown: (e: KeyboardEvent) => {
           if (e.key === 'Escape') {
             this.hide();
           }
@@ -60,7 +60,10 @@ export default class Modal extends Block {
       onClick: this.props.onClick,
     });
   }
-  protected componentDidUpdate(_oldProps: any, newProps: any): boolean {
+  protected componentDidUpdate(
+    _oldProps: ModalProps,
+    newProps: ModalProps,
+  ): boolean {
     this.children.input = new Input({
       type: newProps.type,
       value: '',

@@ -4,7 +4,7 @@ import template from './sidebar.hbs';
 import './sidebar.scss';
 import { Ref } from '../Ref';
 import Router from '../../utils/Router';
-import { withStore } from '../../utils/Store';
+import { State, withStore } from '../../utils/Store';
 import Popup from '../PopupCreate';
 import Modal from '../Modal';
 import { ChatInfo } from '../../api/ChatsAPI';
@@ -24,19 +24,19 @@ class Sidebar extends Block {
     super({
       ...props,
       events: {
-        click: (e: any) => {
+        click: (e: Event) => {
           const popupChat = document.querySelector(
             '.popup-create',
           ) as HTMLButtonElement;
           const wrp = document.querySelector('.wrapper-popup') as HTMLElement;
 
           if (
-            e.target.tagName === 'BUTTON' &&
-            !e.target.classList.contains('button')
+            (e.target as HTMLElement).tagName === 'BUTTON' &&
+            (e.target as HTMLElement).classList.contains('button')
           ) {
             popupChat.classList.toggle('hidden');
           }
-          if (e.target.className === 'add') {
+          if ((e.target as HTMLElement).className === 'add') {
             wrp.classList.toggle('hidden');
             popupChat.classList.add('hidden');
           }
@@ -90,13 +90,16 @@ class Sidebar extends Block {
       },
     });
   }
-  protected componentDidUpdate(_oldProps: any, newProps: any): boolean {
+  protected componentDidUpdate(
+    _oldProps: SidebarProps,
+    newProps: SidebarProps,
+  ): boolean {
     this.children.chats = this.createChats(newProps);
     return true;
   }
 
   private createChats(props: SidebarProps) {
-    return props.chats.map((data: any) => {
+    return props.chats.map((data: ChatInfo) => {
       return new DialogItem({
         id: data.id,
         avatar: data.avatar ? setAvatar(data.avatar) : null,
@@ -120,7 +123,7 @@ class Sidebar extends Block {
   }
 }
 
-const withChats = withStore((state: any) => ({
+const withChats = withStore((state: State) => ({
   chats: state.chats,
   selectedChat: state.selectedChat,
 }));

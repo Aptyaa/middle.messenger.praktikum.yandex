@@ -9,7 +9,7 @@ import template from './chat.hbs';
 import './chat.scss';
 import { ChatInfo } from '../../api/ChatsAPI';
 import { debounceInput, setAvatar } from '../../utils/helpers';
-import { withStore } from '../../utils/Store';
+import { State, withStore } from '../../utils/Store';
 import Popup from '../PopupCreate';
 import UserController from '../../controllers/UserController';
 import { UserData } from '../../api/AuthAPI';
@@ -32,8 +32,8 @@ export class Chat extends Block {
     super({
       ...props,
       events: {
-        click: (e: any) => {
-          if (e.target.className === 'btn_popup') {
+        click: (e: Event) => {
+          if ((e.target as HTMLElement).className === 'btn_popup') {
             (this.children.popup as Popup).toggleDisplay();
           }
         },
@@ -44,10 +44,11 @@ export class Chat extends Block {
   init() {
     this.children.messages = this.createMessages(this.props);
     this.children.modal = new Modal({
+      type: 'text',
       modalClass: 'chat-modal',
       btnClass: 'submit_btn',
-      onInput: (e: any) => {
-        debounceInput(e.target.value);
+      onInput: (e: Event) => {
+        debounceInput((e.target as HTMLInputElement).value);
       },
     });
     this.children.popup = new Popup({
@@ -57,8 +58,8 @@ export class Chat extends Block {
       setAvatar: 'Сменить аватар чата',
       class: 'popup_chat',
       events: {
-        click: (e: any) => {
-          if (e.target?.classList.contains('addUser')) {
+        click: (e: Event) => {
+          if ((e.target as HTMLElement).classList.contains('addUser')) {
             (this.children.modal as Modal).setProps({
               describeAction: 'Добавить пользователя в чат',
               label: 'Добавить пользователя',
@@ -74,7 +75,7 @@ export class Chat extends Block {
             const modal = this.children.modal as Modal;
             modal.show();
           }
-          if (e.target?.classList.contains('deleteUser')) {
+          if ((e.target as HTMLElement).classList.contains('deleteUser')) {
             ChatsController.fetchChatUsers(this.props.selectedChat!);
             const childrenModal = (this.children.modal as Modal).children;
             (childrenModal.input as Input).hide();
@@ -94,10 +95,10 @@ export class Chat extends Block {
             });
             (this.children.modal as Modal).show();
           }
-          if (e.target?.classList.contains('deleteChat')) {
+          if ((e.target as HTMLElement).classList.contains('deleteChat')) {
             ChatsController.delete(this.props.selectedChat);
           }
-          if (e.target?.classList.contains('setAvatar')) {
+          if ((e.target as HTMLElement).classList.contains('setAvatar')) {
             (this.children.modal as Modal).setProps({
               describeAction: 'Поменять аватар чата',
               label: 'Поменять аватар',
@@ -131,7 +132,7 @@ export class Chat extends Block {
     this.children.button = new Button({
       class: 'button-send',
       type: 'submit',
-      onClick: (e: any) => {
+      onClick: (e: Event) => {
         e.preventDefault();
         const input = this.children.input as Input;
         let message = input.getValue();
@@ -141,7 +142,7 @@ export class Chat extends Block {
     });
   }
 
-  componentDidUpdate(_oldProps: any, newProps: any): boolean {
+  componentDidUpdate(_oldProps: ChatProps, newProps: ChatProps): boolean {
     this.children.messages = this.createMessages(newProps);
     const chat = this.props.chats?.find(
       (chat: ChatInfo) => chat.id === newProps.selectedChat,
@@ -181,7 +182,7 @@ export class Chat extends Block {
   }
 }
 
-const withChats = withStore((state: any) => {
+const withChats = withStore((state: State) => {
   const selectedChatId = state.selectedChat;
 
   if (!selectedChatId) {

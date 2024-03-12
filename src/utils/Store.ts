@@ -9,7 +9,7 @@ export enum StoreEvents {
   Updated = 'updated',
 }
 
-interface State {
+export interface State {
   user?: UserData;
   chats?: ChatInfo[];
   messages?: Record<number, Message[]>;

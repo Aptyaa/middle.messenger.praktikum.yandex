@@ -11,7 +11,7 @@ interface InfoInputProps {
   type?: string;
   disabled?: boolean;
   events?: {
-    click?: (e: any) => void;
+    click?: (e: Event) => void;
   };
 }
 
@@ -20,8 +20,8 @@ export default class InfoInput extends Block {
     super({
       ...props,
       events: {
-        blur: (e: any) => {
-          if (e.target.tagName === 'INPUT') blurValidation(e);
+        blur: (e: Event) => {
+          if ((e.target as HTMLElement).tagName === 'INPUT') blurValidation(e);
         },
       },
     });

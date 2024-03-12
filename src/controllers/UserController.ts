@@ -17,8 +17,8 @@ export class UserController {
       try {
         errorHandling(response);
         store.set('user', response.response);
-      } catch (e: any) {
-        alert(e.reason);
+      } catch (e) {
+        alert(e);
       }
     } else {
       alert('Некорректные данные');
@@ -37,7 +37,7 @@ export class UserController {
 
       try {
         errorHandling(response);
-      } catch (e: any) {
+      } catch (e) {
         alert(e);
       }
     }
@@ -48,8 +48,8 @@ export class UserController {
     try {
       errorHandling(response);
       store.set('user', response.response);
-    } catch (e: any) {
-      alert(e.reason);
+    } catch (e) {
+      alert(e);
     }
   }
   public async searchUser(login: string) {
@@ -57,8 +57,8 @@ export class UserController {
     try {
       errorHandling(response);
       store.set('findedUsers', response.response);
-    } catch (e: any) {
-      alert(e.reason);
+    } catch (e) {
+      alert(e);
     }
   }
   public resetFindedUsers() {

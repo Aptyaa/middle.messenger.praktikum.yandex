@@ -10,7 +10,7 @@ interface PopupProps {
   setAvatar?: string;
   class?: string;
   events?: {
-    click?: (e: any) => void;
+    click?: (e: Event) => void;
   };
 }
 
@@ -20,7 +20,7 @@ export default class Popup extends Block {
       ...props,
       events: {
         ...props.events,
-        keydown: (e: any) => {
+        keydown: (e: KeyboardEvent) => {
           if (e.key === 'Escape') {
             this.hide();
           }

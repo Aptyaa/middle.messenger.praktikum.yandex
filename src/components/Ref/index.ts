@@ -8,7 +8,6 @@ interface RefProps {
   ref_name: string;
   className?: string;
   onClick?: (e: Event) => void;
-  event?: () => void;
 }
 
 export class Ref extends Block {
