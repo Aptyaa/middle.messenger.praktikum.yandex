@@ -5,15 +5,12 @@ $error_message-color: red;
   margin: 0;
 }
 
-body {
-  position: relative;
-}
-
 #app {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  position: relative;
 }
 
 .error_message {
