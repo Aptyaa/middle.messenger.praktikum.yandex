@@ -92,9 +92,9 @@ export function transTime(time: string): string {
   return time.split('T')[1].split(':').slice(0, 2).join(':');
 }
 
-export function debounce(fn: any, delay: number) {
+export function debounce(fn: (...args: any) => void, delay: number) {
   let timeoutId: any;
-  return function (this: any, ...args: any[]) {
+  return function (this: any, ...args: any) {
     let content = this;
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => {
@@ -103,11 +103,11 @@ export function debounce(fn: any, delay: number) {
   };
 }
 
-export const debounceInput = debounce((value: any) => {
+export const debounceInput = debounce((value: string) => {
   UserController.searchUser(value);
 }, 1000);
 
-export function setAvatar(avatar: any) {
+export function setAvatar(avatar: string) {
   if (!avatar) return null;
   return `https://ya-praktikum.tech/api/v2/resources${avatar}`;
 }
