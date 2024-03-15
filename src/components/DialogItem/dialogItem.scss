@@ -1,0 +1,53 @@
+$dialog-item_border: 1px solid lightgrey;
+$last-mes_color: #999;
+$time-mes_color: lightgrey;
+$mes-count_color: white;
+$mes-count_backgroundColor: rgb(30 111 233);
+
+.dialog-item {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: $dialog-item_border;
+  padding-top: 10px;
+  padding-bottom: 15px;
+}
+
+.avatar {
+  display: block;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  margin-right: 10px;
+  position: absolute;
+}
+
+.name-mess {
+  font-size: 13px;
+  font-weight: bold;
+  margin-left: 60px;
+
+  .last-mess {
+    font-weight: normal;
+    color: $last-mes_color;
+    font-size: 12px;
+    margin-top: 3px;
+  }
+}
+
+.time-mess {
+  font-size: 8px;
+  color: $time-mes_color;
+  margin-right: 10px;
+
+  span {
+    display: block;
+    margin-top: 19px;
+    font-size: 13px;
+    width: 15px;
+    height: 15px;
+    background-color: $mes-count_backgroundColor;
+    text-align: center;
+    border-radius: 50%;
+    color: $mes-count_color;
+  }
+}
