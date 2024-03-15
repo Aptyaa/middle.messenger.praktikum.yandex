@@ -2,13 +2,18 @@ $btn-color: white;
 $btn-bckGround-color: #3369f3;
 
 .button {
-	display: block;
-	width: 100%;
-	font-size: 15px;
-	background-color: $btn-bckGround-color;
-	color: $btn-color;
-	margin-bottom: 20px;
-	border-radius: 10px;
-	padding: 15px;
-	cursor: pointer;
+  display: block;
+  width: 100%;
+  font-size: 15px;
+  background-color: $btn-bckGround-color;
+  color: $btn-color;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+}
+
+.submit {
+  margin: 60px auto 0;
+  width: 280px;
 }

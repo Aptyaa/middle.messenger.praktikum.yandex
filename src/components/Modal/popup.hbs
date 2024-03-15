@@ -1,0 +1,10 @@
+<div class='wrapper-popup {{modalClass}} ' style='display:none'>
+  <div class='popup'>
+    {{{buttonClose}}}
+    {{describeAction}}
+    {{#unless (eq describeAction 'Удалить пользователя из чата')}} {{{input}}} {{/unless}}
+    {{{list}}}
+    <label class='file-label' for='file-input'>{{action}}</label>
+    {{{button}}}
+  </div>
+</div>

@@ -1,14 +1,13 @@
-import Block from '../../utils/Block'
-import template from './ref.hbs'
-import './ref.scss'
+import Block from '../../utils/Block';
+import template from './ref.hbs';
+import './ref.scss';
 
 interface RefProps {
-  href: string
-  color?: string
-  border_color?: string
-  ref_name: string
-  onClick?: () => void
-  event?: () => void
+  color?: string;
+  border_color?: string;
+  ref_name: string;
+  className?: string;
+  onClick?: (e: Event) => void;
 }
 
 export class Ref extends Block {
@@ -18,9 +17,9 @@ export class Ref extends Block {
       events: {
         click: props.onClick,
       },
-    })
+    });
   }
   render() {
-    return this.compile(template, this.props)
+    return this.compile(template, this.props);
   }
 }
