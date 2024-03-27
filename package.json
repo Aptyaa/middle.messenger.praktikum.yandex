@@ -11,12 +11,13 @@
     "test": "mocha",
     "eslint": "eslint ./src/*/*.ts",
     "stylelint": "stylelint  '**/*{.css,.scss}'",
-    "prettier": "prettier"
+    "prettier": "prettier",
+    "prepare": "husky install"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run test"
-    }
+  "lint-staged": {
+    "*.ts": "npx tsc --noEmit",
+    "*.{js,jsx,ts,tsx}": "npx eslint",
+    "*.{js,jsx,ts,tsx,html,css}": "npx prettier --check"
   },
   "devDependencies": {
     "@types/chai": "^4.3.14",
@@ -34,8 +35,8 @@
     "esm-loader-css": "^1.0.6",
     "esm-loader-typescript": "^1.0.6",
     "esmock": "^2.6.4",
-    "husky": "^9.0.11",
     "jsdom": "^24.0.0",
+    "lint-staged": "^15.2.2",
     "mocha": "^10.4.0",
     "node-esm-loader": "^0.3.0",
     "sass": "^1.64.2",
@@ -49,7 +50,8 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.0.2",
     "vite": "^4.4.5",
-    "vite-plugin-handlebars": "^1.6.0"
+    "vite-plugin-handlebars": "^1.6.0",
+    "husky": "^8.0.0"
   },
   "dependencies": {
     "express": "^4.18.2",
