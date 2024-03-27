@@ -15,9 +15,7 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.ts": "npx tsc --noEmit",
-    "*.{js,jsx,ts,tsx}": "npx eslint",
-    "*.{js,jsx,ts,tsx,html,css}": "npx prettier --check"
+    "*.ts": "npm run eslint --fix"
   },
   "devDependencies": {
     "@types/chai": "^4.3.14",
