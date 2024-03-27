@@ -16,7 +16,6 @@
     "sourceMap": true,
     "noEmit": true,
     "moduleResolution": "bundler",
-    // "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
 
     "strict": true,
