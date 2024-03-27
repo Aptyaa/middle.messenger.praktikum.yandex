@@ -1,7 +1,7 @@
-import Block from '../../utils/Block';
+import Block from '../../utils/Block.ts';
 import template from './dialogItem.hbs';
 import './dialogItem.scss';
-import { withStore } from '../../utils/Store';
+import { withStore } from '../../utils/Store.ts';
 
 export interface DialogItemProps {
   id: number;

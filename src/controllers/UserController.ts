@@ -1,8 +1,8 @@
-import API, { UserPassword, UsersAPI } from '../api/UsersAPI';
-import { UserData } from '../api/AuthAPI';
-import store from '../utils/Store';
-import { submitValidation } from '../utils/validation';
-import { errorHandling } from '../utils/helpers';
+import API, { UserPassword, UsersAPI } from '../api/UsersAPI.ts';
+import { UserData } from '../api/AuthAPI.ts';
+import store from '../utils/Store.ts';
+import { submitValidation } from '../utils/validation.ts';
+import { errorHandling } from '../utils/helpers.ts';
 
 export class UserController {
   private readonly api: UsersAPI;

@@ -1,20 +1,20 @@
-import Block from '../../utils/Block';
-import Input from '../Input';
-import { Button } from '../Button';
-import ChatsController from '../../controllers/ChatsController';
-import MessageController from '../../controllers/MessagesController';
-import { Message as MessageInfo } from '../../controllers/MessagesController';
-import SentMessage from '../SentMessage';
+import Block from '../../utils/Block.ts';
+import Input from '../Input/index.ts';
+import { Button } from '../Button/index.ts';
+import ChatsController from '../../controllers/ChatsController.ts';
+import MessageController from '../../controllers/MessagesController.ts';
+import { Message as MessageInfo } from '../../controllers/MessagesController.ts';
+import SentMessage from '../SentMessage/index.ts';
 import template from './chat.hbs';
 import './chat.scss';
-import { ChatInfo } from '../../api/ChatsAPI';
-import { debounceInput, setAvatar } from '../../utils/helpers';
-import { State, withStore } from '../../utils/Store';
-import Popup from '../PopupCreate';
-import UserController from '../../controllers/UserController';
-import { UserData } from '../../api/AuthAPI';
-import Modal from '../Modal';
-import ArrivedMessage from '../ArrivedMessage';
+import { ChatInfo } from '../../api/ChatsAPI.ts';
+import { debounceInput, setAvatar } from '../../utils/helpers.ts';
+import { State, withStore } from '../../utils/Store.ts';
+import Popup from '../PopupCreate/index.ts';
+import UserController from '../../controllers/UserController.ts';
+import { UserData } from '../../api/AuthAPI.ts';
+import Modal from '../Modal/index.ts';
+import ArrivedMessage from '../ArrivedMessage/index.ts';
 
 interface ChatProps {
   selectedChat: number | undefined;

@@ -1,5 +1,5 @@
-import BaseAPI from './BaseAPI';
-import { UserData } from './AuthAPI';
+import BaseAPI from './BaseAPI.ts';
+import { UserData } from './AuthAPI.ts';
 
 export interface ChatInfo {
   id: number;

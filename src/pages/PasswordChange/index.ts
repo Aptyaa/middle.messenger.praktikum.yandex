@@ -1,17 +1,17 @@
-import Block from '../../utils/Block';
+import Block from '../../utils/Block.ts';
 import template from './passwordchange.hbs';
 import '../Profile/profile.scss';
 import '../PasswordChange/passwordchange.scss';
-import UserPhoto from '../../components/UserPhoto';
-import InfoInput from '../../components/InfoInput';
-import { Button } from '../../components/Button';
-import UserController from '../../controllers/UserController';
-import { UserPassword } from '../../api/UsersAPI';
-import router from '../../utils/Router';
-import { Routes } from '../../index';
-import { withStore } from '../../utils/Store';
-import { setAvatar } from '../../utils/helpers';
-import { UserData } from '../../api/AuthAPI';
+import UserPhoto from '../../components/UserPhoto/index.ts';
+import InfoInput from '../../components/InfoInput/index.ts';
+import { Button } from '../../components/Button/index.ts';
+import UserController from '../../controllers/UserController.ts';
+import { UserPassword } from '../../api/UsersAPI.ts';
+import router from '../../utils/Router.ts';
+import { Routes } from '../../index.ts';
+import { withStore } from '../../utils/Store.ts';
+import { setAvatar } from '../../utils/helpers.ts';
+import { UserData } from '../../api/AuthAPI.ts';
 
 const userFields = [
   ['Старый пароль', 'oldPassword'],

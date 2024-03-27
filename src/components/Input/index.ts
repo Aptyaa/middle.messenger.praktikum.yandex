@@ -1,6 +1,6 @@
-import Block from '../../utils/Block';
+import Block from '../../utils/Block.ts';
 import template from './input.hbs';
-import { blurValidation } from '../../utils/validation';
+import { blurValidation } from '../../utils/validation.ts';
 import './input.scss';
 
 interface InputProps {

@@ -1,0 +1,6 @@
+{
+  "extension": ["ts"],
+  "spec": "./src/**/*.test.ts",
+  "node-option": ["loader=esmock", "loader=node-esm-loader"],
+  "require": "./mochaSetup.js"
+}

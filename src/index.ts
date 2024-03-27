@@ -1,11 +1,11 @@
-import Router from './utils/Router';
-import SignUp from './pages/SignUp';
-import Profile from './pages/Profile';
-import PasswordChange from './pages/PasswordChange';
-import ChatPage from './pages/ChatPage';
-import { LoginPage } from './pages/Login';
-import Error500 from './pages/500';
-import Error400 from './pages/404';
+import Router from './utils/Router.ts';
+import SignUp from './pages/SignUp/index.ts';
+import Profile from './pages/Profile/index.ts';
+import PasswordChange from './pages/PasswordChange/index.ts';
+import ChatPage from './pages/ChatPage/index.ts';
+import { LoginPage } from './pages/Login/index.ts';
+import Error500 from './pages/500/index.ts';
+import Error400 from './pages/404/index.ts';
 import './index.scss';
 
 export enum Routes {

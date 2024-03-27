@@ -1,6 +1,6 @@
-import { EventBus } from './EventBus';
+import { EventBus } from './EventBus.ts';
 import { nanoid } from 'nanoid';
-import { isEqual } from './helpers';
+import { isEqual } from './helpers.ts';
 
 class Block<P extends Record<string, any> = any> {
   static EVENTS = {
@@ -88,6 +88,9 @@ class Block<P extends Record<string, any> = any> {
   }
 
   protected init() {}
+  protected forTestOnly(tagName: any) {
+    this._element = document.createElement(tagName);
+  }
 
   _componentDidMount() {
     this.componentDidMount();

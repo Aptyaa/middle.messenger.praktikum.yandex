@@ -1,10 +1,10 @@
-import API, { AuthAPI, SigninData, SignupData } from '../api/AuthAPI';
-import store from '../utils/Store';
-import router from '../utils/Router';
-import MessageController from './MessagesController';
-import { submitValidation } from '../utils/validation';
-import { Routes } from '../index';
-import { errorHandling } from '../utils/helpers';
+import API, { AuthAPI, SigninData, SignupData } from '../api/AuthAPI.ts';
+import store from '../utils/Store.ts';
+import router from '../utils/Router.ts';
+import MessageController from './MessagesController.ts';
+import { submitValidation } from '../utils/validation.ts';
+import { Routes } from '../index.ts';
+import { errorHandling } from '../utils/helpers.ts';
 
 export class AuthController {
   private readonly api: AuthAPI;

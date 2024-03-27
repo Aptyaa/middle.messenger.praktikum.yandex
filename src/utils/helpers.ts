@@ -1,6 +1,6 @@
 import Handlebars from 'handlebars';
-import UserController from '../controllers/UserController';
-import router from './Router';
+import UserController from '../controllers/UserController.ts';
+import router from './Router.ts';
 
 export type Indexed<T = any> = {
   [key in string]: T;

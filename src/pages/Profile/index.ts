@@ -1,19 +1,19 @@
-import Block from '../../utils/Block';
+import Block from '../../utils/Block.ts';
 import template from './profile.hbs';
 import './profile.scss';
-import { Routes } from '../../index';
-import { withStore } from '../../utils/Store';
-import AuthController from '../../controllers/AuthController';
-import { UserData } from '../../api/AuthAPI';
-import InfoInput from '../../components/InfoInput';
-import { Ref } from '../../components/Ref';
-import UserPhoto from '../../components/UserPhoto';
-import { Button } from '../../components/Button';
-import UserController from '../../controllers/UserController';
-import Router from '../../utils/Router';
-import Modal from '../../components/Modal';
-import { setAvatar } from '../../utils/helpers';
-import Input from '../../components/Input';
+import { Routes } from '../../index.ts';
+import { withStore } from '../../utils/Store.ts';
+import AuthController from '../../controllers/AuthController.ts';
+import { UserData } from '../../api/AuthAPI.ts';
+import InfoInput from '../../components/InfoInput/index.ts';
+import { Ref } from '../../components/Ref/index.ts';
+import UserPhoto from '../../components/UserPhoto/index.ts';
+import { Button } from '../../components/Button/index.ts';
+import UserController from '../../controllers/UserController.ts';
+import Router from '../../utils/Router.ts';
+import Modal from '../../components/Modal/index.ts';
+import { setAvatar } from '../../utils/helpers.ts';
+import Input from '../../components/Input/index.ts';
 
 interface ProfileProps extends UserData {}
 
