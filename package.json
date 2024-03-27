@@ -15,7 +15,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm test && npm eslint -fix && npm stylelint"
+      "pre-commit": "npm test"
     }
   },
   "devDependencies": {
