@@ -9,8 +9,8 @@
     "start": "npm run build && node ./server.js",
     "preview": "vite preview",
     "test": "mocha",
-    "eslint": "eslint ./src/*/*.ts",
-    "stylelint": "stylelint  '**/*{.css,.scss}'",
+    "eslint": "eslint ./src/**/*.ts",
+    "stylelint": "stylelint  './src/**/*{.css,.scss}'",
     "prettier": "prettier",
     "prepare": "husky install"
   },
@@ -46,7 +46,7 @@
     "stylelint-prettier": "^5.0.0",
     "stylelint-scss": "^6.0.0",
     "ts-node": "^10.9.2",
-    "typescript": "^5.0.2",
+    "typescript": "5.0.2",
     "vite": "^4.4.5",
     "vite-plugin-handlebars": "^1.6.0",
     "husky": "^8.0.0"
