@@ -9,7 +9,6 @@ class Block<P extends Record<string, any> = any> {
     FLOW_CDU: 'flow:component-did-update',
     FLOW_RENDER: 'flow:render',
   } as const;
-
   public id = nanoid(6);
   protected props: P;
   public children: Record<string, Block | Block[]>;
