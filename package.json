@@ -8,7 +8,7 @@
     "build": "tsc && vite build --emptyOutDir",
     "start": "npm run build && node ./server.js",
     "preview": "vite preview",
-    "test": "mocha",
+    "test": "node --import ./reg.js ./node_modules/mocha/bin/mocha",
     "eslint": "eslint ./src/**/*.ts",
     "stylelint": "stylelint  './src/**/*{.css,.scss}'",
     "prettier": "prettier",
