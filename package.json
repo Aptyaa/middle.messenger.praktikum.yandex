@@ -14,6 +14,11 @@
     "prettier": "prettier",
     "prepare": "husky install"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm test && npm lint:fix && npm lint:style"
+    }
+  },
   "lint-staged": {
     "*.ts": "npm run eslint --fix"
   },
