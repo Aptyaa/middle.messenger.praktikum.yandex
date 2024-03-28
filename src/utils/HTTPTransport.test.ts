@@ -13,8 +13,6 @@ describe('HTTPTransport', () => {
   beforeEach(() => {
     xhr = Sinon.useFakeXMLHttpRequest();
 
-    //@ts-expect-error
-    global.XMLHttpRequest = xhr;
     xhr.onCreate = (request: SinonFakeXMLHttpRequest) => {
       requests.push(request);
     };
