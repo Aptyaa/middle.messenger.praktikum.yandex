@@ -9,8 +9,8 @@ const eventBusMock = {
 };
 
 describe('Block', async () => {
-  const { default: Block } = (await esmock('./Block', {
-    './EventBus': {
+  const { default: Block } = (await esmock('./Block.ts', {
+    './EventBus.ts': {
       EventBus: class {
         emit = eventBusMock.emit;
         on = eventBusMock.on;
