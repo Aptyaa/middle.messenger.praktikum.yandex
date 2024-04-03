@@ -1,9 +1,9 @@
-import { Routes } from '..';
-import AuthController from '../controllers/AuthController';
-import ChatsController from '../controllers/ChatsController';
-import Block from './Block';
+import { Routes } from '../index.ts';
+import AuthController from '../controllers/AuthController.ts';
+import ChatsController from '../controllers/ChatsController.ts';
+import Block from './Block.ts';
 
-interface BlockConstructable<P extends Record<string, any> = any> {
+export interface BlockConstructable<P extends Record<string, any> = any> {
   new (props: P): Block<P>;
 }
 
@@ -53,7 +53,7 @@ class Route {
 }
 
 class Router {
-  private static __instance: Router;
+  private static __instance?: Router;
   private routes: Route[] = [];
   private currentRoute: Route | null = null;
   private history = window.history;
@@ -139,6 +139,11 @@ class Router {
       window.location.pathname = Routes.Error400;
       return this.routes.find(el => el.match(Routes.Error400));
     }
+  }
+  public reset() {
+    delete Router.__instance;
+
+    new Router(this.rootQuery);
   }
 }
 export default new Router('#app');

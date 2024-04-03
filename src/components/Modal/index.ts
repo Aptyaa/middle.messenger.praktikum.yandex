@@ -1,11 +1,11 @@
-import UserController from '../../controllers/UserController';
-import Block from '../../utils/Block';
-import Input from '../Input';
-import { Button } from '../Button';
+import UserController from '../../controllers/UserController.ts';
+import Block from '../../utils/Block.ts';
+import Input from '../Input/index.ts';
+import { Button } from '../Button/index.ts';
 import template from './popup.hbs';
 import './popup.scss';
-import { UserData } from '../../api/AuthAPI';
-import List from '../List/list';
+import { UserData } from '../../api/AuthAPI.ts';
+import List from '../List/list.ts';
 
 interface ModalProps {
   describeAction?: string;

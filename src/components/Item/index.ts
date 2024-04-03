@@ -1,5 +1,5 @@
-import Block from '../../utils/Block';
-import { State, withStore } from '../../utils/Store';
+import Block from '../../utils/Block.ts';
+import { State, withStore } from '../../utils/Store.ts';
 import template from './item.hbs';
 import './item.scss';
 

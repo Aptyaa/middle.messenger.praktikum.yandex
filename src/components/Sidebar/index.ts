@@ -1,18 +1,18 @@
-import Block from '../../utils/Block';
-import { Routes } from '../../index';
+import Block from '../../utils/Block.ts';
+import { Routes } from '../../index.ts';
 import template from './sidebar.hbs';
 import './sidebar.scss';
-import { Ref } from '../Ref';
-import Router from '../../utils/Router';
-import { State, withStore } from '../../utils/Store';
-import Popup from '../PopupCreate';
-import Modal from '../Modal';
-import { ChatInfo } from '../../api/ChatsAPI';
-import DialogItem from '../DialogItem';
-import ChatsController from '../../controllers/ChatsController';
-import { transTime, setAvatar } from '../../utils/helpers';
-import { Button } from '../Button';
-import Input from '../Input';
+import { Ref } from '../Ref/index.ts';
+import Router from '../../utils/Router.ts';
+import { State, withStore } from '../../utils/Store.ts';
+import Popup from '../PopupCreate/index.ts';
+import Modal from '../Modal/index.ts';
+import { ChatInfo } from '../../api/ChatsAPI.ts';
+import DialogItem from '../DialogItem/index.ts';
+import ChatsController from '../../controllers/ChatsController.ts';
+import { transTime, setAvatar } from '../../utils/helpers.ts';
+import { Button } from '../Button/index.ts';
+import Input from '../Input/index.ts';
 
 interface SidebarProps {
   chats: ChatInfo[];

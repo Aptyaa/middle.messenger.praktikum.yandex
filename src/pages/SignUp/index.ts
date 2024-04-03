@@ -1,13 +1,13 @@
-import Block from '../../utils/Block';
+import Block from '../../utils/Block.ts';
 import template from './signup.hbs';
-import { Routes } from '../../index';
-import AuthController from '../../controllers/AuthController';
+import { Routes } from '../../index.ts';
+import AuthController from '../../controllers/AuthController.ts';
 import './signup.scss';
-import { SignupData } from '../../api/AuthAPI';
-import Input from '../../components/Input';
-import { Button } from '../../components/Button';
-import { Ref } from '../../components/Ref';
-import Router from '../../utils/Router';
+import { SignupData } from '../../api/AuthAPI.ts';
+import Input from '../../components/Input/index.ts';
+import { Button } from '../../components/Button/index.ts';
+import { Ref } from '../../components/Ref/index.ts';
+import Router from '../../utils/Router.ts';
 
 const SignupField = [
   ['email', 'text', 'Почта'],

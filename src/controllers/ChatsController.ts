@@ -1,7 +1,7 @@
-import API, { ChatInfo, ChatsAPI } from '../api/ChatsAPI';
-import store from '../utils/Store';
-import { errorHandling } from '../utils/helpers';
-import MessageController from './MessagesController';
+import API, { ChatInfo, ChatsAPI } from '../api/ChatsAPI.ts';
+import store from '../utils/Store.ts';
+import { errorHandling } from '../utils/helpers.ts';
+import MessageController from './MessagesController.ts';
 
 class ChatsController {
   private readonly api: ChatsAPI;

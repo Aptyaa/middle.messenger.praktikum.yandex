@@ -1,9 +1,9 @@
-import Block from '../../utils/Block';
+import Block from '../../utils/Block.ts';
 import template from './list.hbs';
-import { withStore } from '../../utils/Store';
-import { UserData } from '../../api/AuthAPI';
-import Item from '../Item';
-import UserController from '../../controllers/UserController';
+import { withStore } from '../../utils/Store.ts';
+import { UserData } from '../../api/AuthAPI.ts';
+import Item from '../Item/index.ts';
+import UserController from '../../controllers/UserController.ts';
 import './list.scss';
 
 interface ListProps {

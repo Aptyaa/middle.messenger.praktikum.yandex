@@ -1,6 +1,6 @@
-import WSTransport, { WSTransportEvents } from '../utils/WSTransport';
-import store from '../utils/Store';
-import { submitValidation } from '../utils/validation';
+import WSTransport, { WSTransportEvents } from '../utils/WSTransport.ts';
+import store from '../utils/Store.ts';
+import { submitValidation } from '../utils/validation.ts';
 export interface Message {
   chat_id: number;
   time: string;

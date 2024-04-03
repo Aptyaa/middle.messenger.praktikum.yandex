@@ -1,8 +1,8 @@
-import Block from '../../utils/Block';
+import Block from '../../utils/Block.ts';
 import template from './chatPage.hbs';
 import './chat.scss';
-import Chat from '../../components/Chat';
-import Sidebar from '../../components/Sidebar';
+import Chat from '../../components/Chat/index.ts';
+import Sidebar from '../../components/Sidebar/index.ts';
 
 export class ChatPage extends Block {
   init() {

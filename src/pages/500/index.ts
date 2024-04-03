@@ -1,7 +1,7 @@
-import { Routes } from '../..';
-import { Ref } from '../../components/Ref';
-import router from '../../utils/Router';
-import Block from '../../utils/Block';
+import { Routes } from '../../index.ts';
+import { Ref } from '../../components/Ref/index.ts';
+import router from '../../utils/Router.ts';
+import Block from '../../utils/Block.ts';
 import template from './error.hbs';
 import './error.scss';
 
